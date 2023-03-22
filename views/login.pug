@@ -1,0 +1,14 @@
+extends layouts/login-layout.pug 
+
+//- This file displays the login page and a link to the register page 
+block content
+    .login-container 
+
+        h1 Login 
+        form(method="get") 
+            input(type="text" , name="logUsername", placeholder="Username or email", required="")
+            input(type="password" , name="logPassword", placeholder="Password", required="")
+            input(type="submit" , value="Login")
+
+        a(href="/register") Create a new account? Sign up here. 
+            

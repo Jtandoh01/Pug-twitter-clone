@@ -1,0 +1,40 @@
+extends layouts/login-layout.pug 
+
+//- This file display the login and register page 
+block content
+    .login-container 
+
+        h1 Register Here
+        form#form(method="post", onsubmit="event.preventDefault(); formValidation();" ) 
+
+            p.errorMessage #{errorMessage}
+            input(type="text" , name="firstName", placeholder="First Name",value= firstName required="")
+            input(type="text" , name="middleName", placeholder="Middle Name" value= middleName)
+            input(type="text" , name="lastName", placeholder="Last Name",value= lastName required="")
+            input(type="text" , name="userName", placeholder="Username", value= userName required="")
+            input(type="text" , name="email", placeholder="Email",value= email required="")
+            input#password(type="password" , name="password", placeholder="Password", required="")
+            input#confPassword(type="password" , name="passwordConf", placeholder="Confirm Password", required="")
+            input(type="submit" , value="Sign Up")
+
+        a(href="/login") Already have an account? Login in here.
+
+    //- this script checks if the passwords inputs match 
+    script.
+        var passwordField = document.getElementById("password")
+        var passwordConfirmField = document.getElementById("confPassword")
+        var form = document.getElementById("form")
+
+
+        function formValidation(){
+            if(passwordField.value != passwordConfirmField.value){
+                alert("Passwords do not match. Please try again")
+
+             }
+        else{
+            form.submit();
+
+             }
+
+        }
+            
